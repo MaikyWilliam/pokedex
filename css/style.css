@@ -39,6 +39,34 @@ main h2{
     box-shadow: 5px 5px #0000001f;
 }
 
+#fire{
+    background-image: linear-gradient(#8b100c, #8d8d8d);
+}
+#grass{
+    background-image: linear-gradient(#0c8b21, #8d8d8d);
+}
+#water{
+    background-image: linear-gradient(#0e79dd, #8d8d8d);
+}
+#fighting{
+    background-image: linear-gradient(#0e0d0d, #8d8d8d);
+}
+#psychic{
+    background-image: linear-gradient(#d6cb2a, #8d8d8d);
+}
+#poison{
+    background-image: linear-gradient(#291cdd, #8d8d8d);
+}
+#rock{
+    background-image: linear-gradient(#961414, #8d8d8d);
+}
+#ground{
+    background-image: linear-gradient(#5fa81a, #8d8d8d);
+}
+#electric{
+    background-image: linear-gradient(#def50d, #8d8d8d);
+}
+
 .pokemon-box img{
     width: 100%;
 }

@@ -1,16 +1,34 @@
+let boxState = false;
+
 const quantidade = document.getElementById('quantidade');
     quantidade.addEventListener('keyup',()=>{
         pegaPokemons(quantidade.value);
 })
 
-pegaPokemons(3);
+
+pegaPokemons(6);
 
 // function clicar() {
-//     let zoom = document.querySelector('.pokemon-box');
+//     let zoom = document.querySelector('.pokemon-box').innerText;
 
-//     zoom.addEventListener('click', ()=>{
-//         zoom.style = "width: 200%;"
-//     })
+//     // for (let i = 0; i < zoom.length; i++) {
+//         // console.log(zoom)
+//     // }
+
+//     if(boxState == false){
+//         zoom.addEventListener('click', ()=>{
+//             zoom.style = "width: 200%;"
+//         })
+
+//         boxState = true;
+//     }else if(boxState == true){
+//         zoom.addEventListener('click', ()=>{
+//             zoom.style = "width: 29%;"
+//         })
+//         boxState = false;
+//     }
+    
+//     console.log(boxState);
 // }
 
 function pegaPokemons(quantidade) {
@@ -19,6 +37,7 @@ function pegaPokemons(quantidade) {
     .then(response => response.json())
     .then(allPokemon => {
 
+
         const pokemons = [];
 
         allPokemon.results.map((val)=>{
@@ -26,8 +45,14 @@ function pegaPokemons(quantidade) {
             fetch(val.url)
             .then(response => response.json())
             .then(pokemonSingle => {
-                pokemonSingle.sprites.other.dream_world.front_default
-                pokemons.push({nome: val.name, imagem: pokemonSingle.sprites.other.dream_world.front_default});
+                let sprite = pokemonSingle.sprites.other.dream_world.front_default
+                let type = pokemonSingle.types[0].type.name;
+
+                pokemons.push({
+                    nome: val.name, 
+                    imagem: sprite, 
+                    tipo: type
+                });
 
                 if(pokemons.length == quantidade){
 
@@ -35,9 +60,10 @@ function pegaPokemons(quantidade) {
                     el.innerHTML = "";
 
                     pokemons.map(function(val) {
+                        
                         el.innerHTML += `
-                            <div class="pokemon-box">
-                                <img src=`+ val.imagem +` onclick="clicar();">
+                            <div class="pokemon-box" id="`+ val.tipo +`">
+                                <img src=`+ val.imagem +`>
                                 <p>`+ val.nome +`</p>
                             </div>
                         `;
