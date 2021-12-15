@@ -19,9 +19,25 @@ main{
     margin-right: 5%;
 }
 
+#idPokemon{
+    width: 100%; 
+    height: 40px; 
+    padding-left: 10px; 
+    margin-bottom: 10px;
+}
+
+main label{
+    padding-top: 10px;
+}
+
+#quantidade{
+    width: 50px; 
+    height: 25px; 
+    padding-left: 10px;
+    display: block; 
+}
+
 main h2{
-    color: #ac0f0f;
-    font-size: 55px;
     text-align: center;
 }
 
@@ -37,33 +53,56 @@ main h2{
     margin: 10px 2%;
     background-color: #416c72;
     box-shadow: 5px 5px #0000001f;
+    cursor: pointer;
 }
 
-#fire{
+.status{
+    background-color: #000000f3;
+    color: white;
+    border-radius: 10px;
+    height: 290px;
+    padding: 3%;
+}
+
+.status p{
+    padding-bottom: 5px;
+}
+
+.status > h2{
+    position: relative;
+    top: -20px;
+}
+
+div[tipo=fire]{
     background-image: linear-gradient(#8b100c, #8d8d8d);
 }
-#grass{
+
+div[tipo=flying]{
+    background-image: linear-gradient(#0457a5, #8d8d8d);
+}
+
+div[tipo=grass]{
     background-image: linear-gradient(#0c8b21, #8d8d8d);
 }
-#water{
+div[tipo=water]{
     background-image: linear-gradient(#0e79dd, #8d8d8d);
 }
-#fighting{
+div[tipo=fighting]{
     background-image: linear-gradient(#0e0d0d, #8d8d8d);
 }
-#psychic{
+div[tipo=psychic]{
     background-image: linear-gradient(#d6cb2a, #8d8d8d);
 }
-#poison{
+div[tipo=poison]{
     background-image: linear-gradient(#291cdd, #8d8d8d);
 }
-#rock{
+div[tipo=rock]{
     background-image: linear-gradient(#961414, #8d8d8d);
 }
-#ground{
+div[tipo=ground]{
     background-image: linear-gradient(#5fa81a, #8d8d8d);
 }
-#electric{
+div[tipo=electric]{
     background-image: linear-gradient(#def50d, #8d8d8d);
 }
 
@@ -71,15 +110,22 @@ main h2{
     width: 100%;
 }
 
-.pokemon-box:hover{
-    background-color: #527377;
-}
-
 .pokemon-box p{
     color: black;
     font-size: 24px;
     text-align: center;
     padding: 10px 0;
+}
+
+@media screen and (max-width: 1200px){
+    .pokemon-box{
+        width: 100%;
+        text-align: center;
+    }
+
+    .pokemon-box img{
+        max-width: 300px;
+    }
 }
 
 @media screen and (max-width: 768px){
